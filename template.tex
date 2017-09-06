@@ -1,0 +1,125 @@
+% Rookies-seminar レジュメ作成用TeXファイル
+% 必要ファイル
+% ・rookies.sty		（新人ゼミ専用スタイル）
+% ・jumoline.sty		（改行許可する下線引きスタイル）
+% ・multicolpar.sty	（途中段組変更スタイル）
+%
+%
+% 2段組の使用法
+% ----
+% begin{multicolpar}{2}
+%  This is a pen.（英語）
+%
+%  これはペンです．（日本語）
+% end{multicolpar}
+% ----
+% 行空けで交互に出力できますが，
+% １パラグラフずつ，begin と endで囲んだほうが
+% いいことがあります．
+%
+%
+% アンダーラインの使用法
+% ----
+% \Underline{This is a pen.} \
+% ----
+% ・Uが大文字であること，
+% ・尻尾のスペース記号"\ "（バックスラッシュスペース）
+% に注意
+%
+%
+% 図の挿入法
+% \begin{figure}[ht]
+%   \centering %中央配置
+%   \includegraphics[width=0.3\columnwidth]{figure4.eps}
+%   %\includegraphics[width=表示幅\columnwidth]{eps画像ファイル.eps} で読み込む
+%   \begin{multicolpar}{2}
+%     Hoge
+%
+%     ほげ
+%   \end{multicolpar}
+% \end{figure}
+%
+%
+%
+
+\documentclass[11pt,a4paper]{jarticle}
+\usepackage{rookies} % rookies-seminar Style読み込み
+\usepackage{float}
+
+
+% --------------------1つ目のタイトル生成のための情報--------------------
+%
+\mytitle{title} % 発表論文タイトル
+\mysection{1}{ABSTRACT} % {発表順}{発表セクション} 改行記号は”\\”で．
+\mydate{YYYY}{M}{D}{水} % 発表年月日{西暦(4ケタ)}{月}{日}{曜日} 発表年月日
+\myname{名前}{namae} % 氏名：{漢字}{ローマ字}
+\mynumber{0} % 第○会新人ゼミ
+
+% ----------------------------------------------------------------
+
+
+\begin{document}
+\mktitle % 自前のタイトル生成（MakeTitle）です．(1つ目のみ 20170426更新)
+
+\begin{itemize}
+    \item[出典:] 〜〜. 201x. 〜. IN {\it Proceedings 〜〜} (UIST '1x)
+\end{itemize}
+
+\hrulefill % 横線
+
+\begin{multicolpar}{2}
+\bf{ABSTRACT}
+
+\bf{概要}
+
+hogehogehogehogehogehoge
+
+あああ
+
+\end{multicolpar}
+
+% --------------------2つ目以降のタイトル生成--------------------
+% \newtitle{発表論文タイトル}{発表順}{発表セクション}
+% 2タイトル目以降は手動で入力してくださいごめんなさい。自動で改ページされます。
+\newtitle{title2}{2}{ABSTRACT} 
+
+\begin{itemize}
+\item[出典:] 
+\end{itemize}
+
+\hrulefill
+
+\begin{multicolpar}{2}
+\bf{ABSTRACT}
+
+\bf{概要}
+
+fugafugafugafugafugafuga
+
+いいい
+
+\end{multicolpar}
+
+
+%3タイトル目
+\newtitle{title3}{3}{ABSTRACT}
+
+\begin{itemize}
+\item[出典:] 
+\end{itemize}
+
+\hrulefill
+
+\begin{multicolpar}{2}
+\bf{ABSTRACT}
+
+\bf{概要}
+
+piyopiyopiyopiyopiyopiyo
+
+ううう
+
+\end{multicolpar}
+
+
+\end{document}

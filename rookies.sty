@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TeX Style for IPLAB Rookies-Seminar                        %
+% made by NAKAZONO Nagayoshi			modified: 2006-04-26 %
+% modified by Shuji SATO				modified: 2006-09-24 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setlength\paperwidth{1.09529\paperwidth}%
+%\setlength\paperheight{1.09529\paperheight}%
+
+\newcount \page
+\page=1
+
+\emergencystretch 3zw
+
+%\setlength\Cvs{\baselineskip}
+
+\setlength\columnsep{2zw} %段組の間隔
+\setlength\columnseprule{0\p@}
+\renewcommand{\baselinestretch}{}
+
+%\setlength\parskip{-\p@}
+%\setlength\parindent{1zw}
+
+\@lowpenalty 51
+\@medpenalty 151
+\@highpenalty 301
+
+\setlength\topskip{10\p@}
+\setlength\headheight{0\p@}
+\setlength\footskip{7truemm}
+\setlength\headsep{0\p@}
+
+%\voffset=-1truein
+%\addtolength{\voffset}{4truemm}
+\setlength{\voffset}{-10truemm}
+
+\textheight=\paperheight
+\addtolength{\textheight}{-30truemm}
+
+\topmargin=0truept
+\textwidth=\paperwidth
+%\addtolength{\textwidth}{-20truemm}
+\addtolength{\textwidth}{-35truemm}
+
+
+%\setlength{\hoffset}{-15truemm}
+\setlength{\hoffset}{-8truemm}
+
+\oddsidemargin=0truept
+\evensidemargin=\oddsidemargin
+
+\marginparsep=0truept
+\marginparwidth=0truept
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.8}
+\renewcommand{\textfraction}{.1}
+\renewcommand{\floatpagefraction}{.8}
+\renewcommand{\dbltopfraction}{.8}
+\renewcommand{\dblfloatpagefraction}{.8}
+
+
+\usepackage[dvipdfmx]{graphicx} %画像を取り込む(TeXデフォルトのスタイル)
+\usepackage{multicolpar} %対訳用の多段組用スタイル
+%使用法
+%begin{multicolpar}{2}
+%  This is a pen.
+%
+%  これはペンです．
+%end{multicolpar}
+
+\usepackage{jumoline} %改行を含むことができるアンダーラインを引く
+%アンダーラインの使い方は \Underline{......} Uが大文字であることに注意
+\usepackage{okumacro} %奥村大先生のマクロ集．
+\usepackage{amsmath} %数式機能AMS-LaTeXの読み込み1
+\usepackage[psamsfonts]{amssymb} %数式機能AMS-LaTeXの読み込み2
+\usepackage{type1cm} %type1cmフォント読み込み，
+\usepackage{txfonts} %txfontsフォントの読み込み（Times）
+
+
+% タイトルスタイル
+\newcommand{\mytitle}[1]{%
+    \newcommand{\gomytitle}{#1}
+}
+
+\newcommand{\mysection}[2]{%
+    \newcommand{\gomysecnum}{#1}
+ \newcommand{\gomysecname}{#2}
+}
+
+\newcommand{\mydate}[4]{%
+    \newcommand{\myyear}{#1}%
+ \newcommand{\mymonth}{#2}%
+ \newcommand{\myday}{#3}%
+ \newcommand{\myweek}{#4}%
+}
+
+\newcommand{\myname}[2]{%
+    \newcommand{\gomynamej}{#1}
+ \newcommand{\gomynamee}{#2}
+}
+
+\newcommand{\mynumber}[1]{%
+    \newcommand{\gomynumber}{#1}
+}
+
+
+%\rfoot{\small IPLAB Rookies-Seminar 2006 %
+%第{\gomynumber}会，%
+%{\gomyyear}.{\gomymonth}月{\gomyday}日}{}
+%}
+
+
+\newcommand{\mktitle}{%
+    \newtitle{\gomytitle}{\gomysecnum}{\gomysecname}
+    \begin{flushright}
+        【IPLAB 第{\gomynumber}回新人ゼミ資料】 {\myyear}年{\mymonth} 月
+        {\myday} 日(\myweek) \par%
+        担当 : \gomynamej (\gomynamee)%
+    \end{flushright}
+    \advance \page by 1
+}
+
+%タイトル生成
+\newcommand{\newtitle}[3]{
+    \ifnum \page>1%
+        \newpage
+    \fi
+    \begin{center}
+        {\Large\textbf {#1}} \par
+        \vspace{1em}
+        {\large\textbf section 0{#2} : {#3}}
+    \end{center}
+} 
